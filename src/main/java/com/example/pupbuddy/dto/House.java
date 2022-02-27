@@ -5,6 +5,12 @@ import lombok.Data;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Documentation: Include it here.
+ * @author
+ */
+
+
 @Data
 public class House {
     private int houseId;
