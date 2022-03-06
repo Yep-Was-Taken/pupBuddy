@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class PupBuddyController {
 
     @RequestMapping("/")
-    public String index(){
-        return "start";
+    public String home(){
+        return "home";
     }
 }
