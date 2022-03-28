@@ -1,6 +1,6 @@
 package com.example.pupbuddy.dto;
 
-import lombok.Data;
+import lombok.Data;  
 
 public @Data class Human {
     private String humanId;
