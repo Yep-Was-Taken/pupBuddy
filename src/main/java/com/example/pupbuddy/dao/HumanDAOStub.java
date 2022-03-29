@@ -2,12 +2,14 @@ package com.example.pupbuddy.dao;
 
 import com.example.pupbuddy.dto.Chore;
 import com.example.pupbuddy.dto.Human;
+import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+@Repository
 public class HumanDAOStub implements IHumanDAO{
     private ArrayList<Human> allHumans = new ArrayList<>();
 

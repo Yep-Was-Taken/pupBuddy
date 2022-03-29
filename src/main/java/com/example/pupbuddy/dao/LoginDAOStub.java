@@ -1,12 +1,14 @@
 package com.example.pupbuddy.dao;
 
 import com.example.pupbuddy.dto.Login;
+import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+@Repository
 public class LoginDAOStub implements ILoginDAO{
 
     private Map<Integer, Login> allLogins = new HashMap<>();

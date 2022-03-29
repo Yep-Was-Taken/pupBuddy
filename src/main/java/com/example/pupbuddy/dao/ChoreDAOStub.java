@@ -1,12 +1,14 @@
 package com.example.pupbuddy.dao;
 
 import com.example.pupbuddy.dto.Chore;
+import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+@Repository
 public class ChoreDAOStub implements IChoreDAO{
     private ArrayList<Chore> allChores = new ArrayList<>();
 
