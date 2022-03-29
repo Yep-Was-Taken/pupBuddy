@@ -3,9 +3,11 @@ package com.example.pupbuddy.service;
 import com.example.pupbuddy.dao.IHumanDAO;
 import com.example.pupbuddy.dto.Human;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class HumanServiceStub implements IHumanService{
 
     @Autowired
