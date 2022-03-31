@@ -13,7 +13,7 @@ public interface IHouseDAO {
 
     List<House> fetchAll();
 
-    House fetch(int id);
+    House fetch(String id);
 
-    void delete(int id);
+    void delete(String id);
 }

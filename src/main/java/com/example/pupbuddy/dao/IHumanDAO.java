@@ -11,7 +11,7 @@ public interface IHumanDAO {
 
     List<Human> fetchAll();
 
-    Human fetch(int id);
+    Human fetch(String id);
 
-    void delete(int id);
+    void delete(String id);
 }

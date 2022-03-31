@@ -9,7 +9,7 @@ public interface IDogDAO {
 
     List<Dog> fetchAll();
 
-    Dog fetch(int id);
+    Dog fetch(String id);
 
-    void delete(int id);
+    void delete(String id);
 }
