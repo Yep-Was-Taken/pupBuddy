@@ -20,6 +20,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @SpringBootTest
 class PupBuddyApplicationTests {
 
+    /**
+     * Validate service methods for Chore with a sample set of data
+     */
     private Chore chore = new Chore();
     private Chore dinner = new Chore();
     private Chore secondDinner = new Chore();
@@ -90,7 +93,6 @@ class PupBuddyApplicationTests {
 
     /**
      * Validate that the DTO properties can be set and retrieved for each class
-     * Thanks to Mahesh Gowda
      */
     @Test
     void verifyChoreProperties() {
