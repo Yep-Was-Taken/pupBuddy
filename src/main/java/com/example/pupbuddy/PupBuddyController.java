@@ -3,16 +3,10 @@ package com.example.pupbuddy;
 import com.example.pupbuddy.dto.*;
 import com.example.pupbuddy.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 /**
  * PupBuddyController
@@ -23,25 +17,46 @@ import java.util.List;
 public class PupBuddyController {
 
     @Autowired
-    IChoreService choreService;
+    public IChoreService choreService;
 
     @Autowired
-    IHumanService humanService;
+    public IHumanService humanService;
 
     @Autowired
-    IDogService dogService;
+    public IDogService dogService;
 
     @Autowired
-    IHouseService houseService;
+    public IHouseService houseService;
 
     @Autowired
-    ILoginService loginService;
+    public ILoginService loginService;
+
+    @Autowired
+    public ILoginCRUDService crudService;
 
     @RequestMapping("/")
     public String index(){
         return "home";
     }
 
+    @PostMapping("/createLogin")
+    public String createLogin(@RequestBody Login login) throws InterruptedException, ExecutionException {
+        return crudService.createLogin(login);
+    }
 
+    @GetMapping("/getLogin")
+    public Login getLogin(@RequestParam String loginId) throws InterruptedException, ExecutionException {
+        return crudService.getLogin(loginId);
+    }
+
+    @PutMapping("/updateLogin")
+    public String updateLogin(@RequestBody Login login) throws InterruptedException, ExecutionException {
+        return crudService.updateLogin(login);
+    }
+
+    @DeleteMapping("/deleteLogin")
+    public String deleteLogin(@RequestParam String loginId) throws InterruptedException, ExecutionException {
+        return crudService.deleteLogin(loginId);
+    }
 
 }
