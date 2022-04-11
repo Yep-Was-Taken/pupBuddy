@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
   <title>PupBuddy</title>
   <meta charset="utf-8">
@@ -33,15 +33,15 @@
       <div class="col-sm-4"></div>
       <div class="col-sm-4">
         <p class="h4">Add a new pet</p><hr>
-          <form>
+          <form action="#" th:action="@{savedog}" th:object="${dog}" method="GET">
             <div class="form-group">
-                <label for="newPetNameInput">Pet's Name:</label>
-                <input class="form-control" id="petNameInput">
+                <label for="petName">Pet's Name:</label>
+                <input class="form-control" name="petName" th:field="*{petName}">
                 </select>
-                <label for="newPetPictureInput">Pet's Picture:</label>
-                <input type="file" class="form-control" id="petPictureInput">
+                <label for="petPicture">Pet's Picture:</label>
+                <input type="file" class="form-control" name="petPicture" th:field="*{petPicture}">
               </div>
-              <button type="submit" class="btn btn-info mx-auto"style="width:200px">Add Pet</button>
+              <button type="submit" name="submit" class="btn btn-info mx-auto"style="width:200px">Add Pet</button>
           </form>
       </div>
       <div class="col-sm-4"></div>

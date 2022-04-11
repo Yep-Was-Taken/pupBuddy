@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
   <title>PupBuddy</title>
   <meta charset="utf-8">
@@ -52,24 +52,25 @@
         <div class="list-group">
             <a href="#" class="list-group-item list-group-item-action list-group-item-info">9:52 - Mom fed Pet #1</a>
             <a href="#" class="list-group-item list-group-item-action list-group-item-info">12:01 - Dad Took Pet #1 Potty</a>
+            <a href="#" class="list-group-item list-group-item-action list-group-item-info" th:text="${chore}"></a>
     </div>
     </div>
     <div class="col-sm-4">
       <p class="h4">Have a chore to report?</p><hr>
-        <form>
+        <form action="#" th:action="@{saveChore}" th:object="${chore}" method="GET">
           <div class="form-group">
-            <label for="sel1">What chore did you do?</label>
-            <select class="form-control" id="sel1">
+            <label for="chore">What chore did you do?</label>
+            <select class="form-control" name="chore" th:field="*{chore}">
               <option>Fed Pet</option>
               <option>Took Pet Potty</option>
               <option>Took Pet on Walk</option>
             </select>
           </div>
             <div class="form-group">
-              <label for="sel2">When was the chore completed?</label>
-              <input type="time" class="form-control" id="sel2">
+              <label for="time">When was the chore completed?</label>
+              <input type="time" class="form-control" name="time" th:field="*{time}">
             </div>
-            <button type="submit" class="btn btn-info mx-auto"style="width:200px">Submit Chore</button>
+            <button type="submit" name="submit" class="btn btn-info mx-auto" style="width:200px">Submit Chore</button>
         </form>
     </div>
   </div>
