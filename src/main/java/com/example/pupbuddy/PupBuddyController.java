@@ -43,8 +43,15 @@ public class PupBuddyController {
     }
 
     @RequestMapping("/saveChore")
-    public void saveChore(Chore chore) {
+    public string saveChore(Chore chore) {
+        choreService.save(chore);
         return "home";
+    }
+
+    @RequestMapping("/saveDog")
+    public string saveDog(Dog dog) {
+        dogService.save(dog);
+        return "pets";
     }
 
 
