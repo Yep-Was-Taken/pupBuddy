@@ -42,6 +42,11 @@ public class PupBuddyController {
         return "home";
     }
 
+    @RequestMapping("/saveChore")
+    public void saveChore(Chore chore) {
+        return "home";
+    }
+
 
 
 }
