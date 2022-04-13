@@ -22,8 +22,8 @@ public class ChoreCRUDService implements IChoreCRUDService{
     }
 
     @Override
-    public Chore getChore(String choreId) throws ExecutionException, InterruptedException {
-        DocumentReference documentReference = dbFirestore.collection("Chores").document(choreId);
+    public Chore getChore(String choreId, String houseId) throws ExecutionException, InterruptedException {
+        DocumentReference documentReference = dbFirestore.collection("Houses").document(houseId).collection("Chores").document(choreId);
         ApiFuture<DocumentSnapshot> future = documentReference.get();
         DocumentSnapshot document = future.get();
         Chore chore;
@@ -41,8 +41,8 @@ public class ChoreCRUDService implements IChoreCRUDService{
     }
 
     @Override
-    public String deleteChore(String choreId) {
-        ApiFuture<WriteResult> collectionApiFuture = dbFirestore.collection("Chores").document(choreId).delete();
+    public String deleteChore(String choreId, String houseId) {
+        ApiFuture<WriteResult> collectionApiFuture = dbFirestore.collection("Houses").document(houseId).collection("Chores").document(choreId).delete();
         return "Successfully deleted " + choreId;
     }
 }

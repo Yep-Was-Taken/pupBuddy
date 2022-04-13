@@ -22,8 +22,8 @@ public class HumanCRUDService implements IHumanCRUDService{
     }
 
     @Override
-    public Human getHuman(String humanId) throws ExecutionException, InterruptedException {
-        DocumentReference documentReference = dbFirestore.collection("Humans").document(humanId);
+    public Human getHuman(String humanId, String houseId) throws ExecutionException, InterruptedException {
+        DocumentReference documentReference = dbFirestore.collection("Houses").document(houseId).collection("Humans").document(humanId);
         ApiFuture<DocumentSnapshot> future = documentReference.get();
         DocumentSnapshot document = future.get();
         Human human;
@@ -41,8 +41,8 @@ public class HumanCRUDService implements IHumanCRUDService{
     }
 
     @Override
-    public String deleteHuman(String humanId) {
-        ApiFuture<WriteResult> collectionApiFuture = dbFirestore.collection("Humans").document(humanId).delete();
+    public String deleteHuman(String humanId, String houseId) {
+        ApiFuture<WriteResult> collectionApiFuture = dbFirestore.collection("Houses").document(houseId).collection("Humans").document(humanId).delete();
         return "Successfully deleted " + humanId;
     }
 }

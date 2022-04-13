@@ -22,8 +22,8 @@ public class DogCRUDService implements IDogCRUDService{
     }
 
     @Override
-    public Dog getDog(String dogId) throws ExecutionException, InterruptedException {
-        DocumentReference documentReference = dbFirestore.collection("Dogs").document(dogId);
+    public Dog getDog(String dogId, String houseId) throws ExecutionException, InterruptedException {
+        DocumentReference documentReference = dbFirestore.collection("Houses").document(houseId).collection("Dogs").document(dogId);
         ApiFuture<DocumentSnapshot> future = documentReference.get();
         DocumentSnapshot document = future.get();
         Dog dog;
@@ -41,8 +41,8 @@ public class DogCRUDService implements IDogCRUDService{
     }
 
     @Override
-    public String deleteDog(String dogId) {
-        ApiFuture<WriteResult> collectionApiFuture = dbFirestore.collection("Dogs").document(dogId).delete();
+    public String deleteDog(String dogId, String houseId) {
+        ApiFuture<WriteResult> collectionApiFuture = dbFirestore.collection("Houses").document(houseId).collection("Dogs").document(dogId).delete();
         return "Successfully deleted " + dogId;
     }
 }
