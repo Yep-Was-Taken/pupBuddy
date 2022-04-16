@@ -5,6 +5,7 @@ import com.example.pupbuddy.dto.Dog;
 import com.example.pupbuddy.dto.House;
 import org.springframework.stereotype.Repository;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -15,7 +16,7 @@ public class HouseDAOStub implements IHouseDAO{
     private ArrayList<House> allHouses = new ArrayList<>();
 
     @Override
-    public House save(House house) throws Exception {
+    public House save(House house) throws IOException {
         allHouses.add(house);
         return house;
     }

@@ -11,11 +11,11 @@ import java.util.Map;
 @Repository
 public class LoginDAOStub implements ILoginDAO{
 
-    private Map<Integer, Login> allLogins = new HashMap<>();
+    private Map<String, Login> allLogins = new HashMap<>();
 
     @Override
     public Login save(Login login) throws Exception {
-        Integer loginId = login.getLoginId();
+        String loginId = login.getLoginId();
         allLogins.put(loginId, login);
         return login;
     }

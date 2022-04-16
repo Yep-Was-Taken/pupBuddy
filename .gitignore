@@ -135,3 +135,6 @@ buildNumber.properties
 
 node_modules/
 /node_modules/
+pupbuddy-d3de7-firebase-adminsdk-d1b39-37f1eeaa2b.json
+src/main/java/com/example/pupbuddy/PupBuddyApplication.java
+src/main/resources/application.properties
