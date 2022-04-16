@@ -10,26 +10,22 @@ import java.util.concurrent.ExecutionException;
 
 /**
  * PupBuddyController
- * Comment to document what PupBuddyController does
  */
 
 @Controller
 public class PupBuddyController {
 
     @Autowired
-    public IChoreService choreService;
+    public IChoreCRUDService choreCrudService;
 
     @Autowired
-    public IHumanService humanService;
+    public IHumanCRUDService humanCrudService;
 
     @Autowired
-    public IDogService dogService;
+    public IDogCRUDService dogCrudService;
 
     @Autowired
-    public IHouseService houseService;
-
-    @Autowired
-    public ILoginService loginService;
+    public IHouseCRUDService houseCrudService;
 
     @Autowired
     public ILoginCRUDService crudService;
@@ -59,4 +55,83 @@ public class PupBuddyController {
         return crudService.deleteLogin(loginId);
     }
 
+    @PostMapping("/createChore")
+    public String createChore(@RequestBody Chore chore) throws ExecutionException, InterruptedException {
+        return choreCrudService.createChore(chore);
+    }
+
+    @GetMapping("/getChore")
+    public Chore getChore(@RequestParam String choreId, String houseId) throws InterruptedException, ExecutionException {
+        return choreCrudService.getChore(choreId, houseId);
+    }
+
+    @PutMapping("/updateChore")
+    public String updateChore(@RequestBody Chore chore) throws InterruptedException, ExecutionException {
+        return choreCrudService.updateChore(chore);
+    }
+
+    @DeleteMapping("/deleteChore")
+    public String deleteChore(@RequestParam String choreId, String houseId) throws InterruptedException, ExecutionException {
+        return choreCrudService.deleteChore(choreId, houseId);
+    }
+
+    @PostMapping("/createDog")
+    public String createDog(@RequestBody Dog dog) throws ExecutionException, InterruptedException {
+        return dogCrudService.createDog(dog);
+    }
+
+    @GetMapping("/getDog")
+    public Dog getDog(@RequestParam String dogId, String houseId) throws InterruptedException, ExecutionException {
+        return dogCrudService.getDog(dogId, houseId);
+    }
+
+    @PutMapping("/updateDog")
+    public String updateDog(@RequestBody Dog dog) throws InterruptedException, ExecutionException {
+        return dogCrudService.updateDog(dog);
+    }
+
+    @DeleteMapping("/deleteDog")
+    public String deleteDog(@RequestParam String dogId, String houseId) throws InterruptedException, ExecutionException {
+        return dogCrudService.deleteDog(dogId, houseId);
+    }
+
+    @PostMapping("/createHouse")
+    public String createHouse(@RequestBody House dog) throws ExecutionException, InterruptedException {
+        return houseCrudService.createHouse(dog);
+    }
+
+    @GetMapping("/getHouse")
+    public House getHouse(@RequestParam String houseId) throws InterruptedException, ExecutionException {
+        return houseCrudService.getHouse(houseId);
+    }
+
+    @PutMapping("/updateHouse")
+    public String updateHouse(@RequestBody House house) throws InterruptedException, ExecutionException {
+        return houseCrudService.updateHouse(house);
+    }
+
+    @DeleteMapping("/deleteHouse")
+    public String deleteHouse(@RequestParam String houseId) throws InterruptedException, ExecutionException {
+        return houseCrudService.deleteHouse(houseId);
+    }
+
+    @PostMapping("/createHuman")
+    public String createHuman(@RequestBody Human human) throws ExecutionException, InterruptedException {
+        return humanCrudService.createHuman(human);
+    }
+
+    @GetMapping("/getHuman")
+    public Human getHuman(@RequestParam String humanId, String houseId) throws InterruptedException, ExecutionException {
+        return humanCrudService.getHuman(humanId, houseId);
+    }
+
+    @PutMapping("/updateHuman")
+    public String updateHuman(@RequestBody Human human) throws InterruptedException, ExecutionException {
+        return humanCrudService.updateHuman(human);
+    }
+
+    @DeleteMapping("/deleteHuman")
+    public String deleteHuman(@RequestParam String humanId, String houseId) throws InterruptedException, ExecutionException {
+        return humanCrudService.deleteHuman(humanId, houseId);
+    }
 }
