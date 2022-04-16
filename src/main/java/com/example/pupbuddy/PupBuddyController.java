@@ -67,7 +67,8 @@ public class PupBuddyController {
 
     @PutMapping("/updateChore")
     public String updateChore(@RequestBody Chore chore) throws InterruptedException, ExecutionException {
-        return choreCrudService.updateChore(chore);
+        choreCrudService.updateChore(chore);
+        return "home";
     }
 
     @DeleteMapping("/deleteChore")
@@ -87,7 +88,8 @@ public class PupBuddyController {
 
     @PutMapping("/updateDog")
     public String updateDog(@RequestBody Dog dog) throws InterruptedException, ExecutionException {
-        return dogCrudService.updateDog(dog);
+        dogCrudService.updateDog(dog);
+        return "pets";
     }
 
     @DeleteMapping("/deleteDog")
