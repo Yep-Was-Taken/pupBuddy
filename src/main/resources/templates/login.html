@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
   <title>Log In</title>
   <meta charset="utf-8">
@@ -11,37 +11,20 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-dark" style="background-color:#5bc0de">
-        <div class="container-fluid">
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>                        
-            </button>
-            <a class="navbar-brand" href="home.html">PupBuddy</a>
-          </div>
-            <ul class="nav navbar-nav navbar-right">
-              <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-              <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-
-      <div class="container">
-        <h2>Keep track of your doggy duties!</h2>
-        <form>
-          <div class="form-group">
-            <label for="usr">Username:</label>
-            <input type="text" class="form-control" id="usr">
-          </div>
-          <div class="form-group">
-            <label for="pwd">Password:</label>
-            <input type="password" class="form-control" id="pwd">
-          </div>
-        </form>
-            <button type="button" class="btn btn-info" id="logInBtn">Login</button>
-            <button type="button" class="btn btn-info" id="signUpBtn">Sign Up Now!</button>
+  <div th:replace="fragments/navbar :: navbar"></div>
+  <div class="container">
+    <h2>Keep track of your doggy duties!</h2>
+    <form>
+      <div class="form-group">
+        <label for="usr">Username:</label>
+        <input type="text" class="form-control" id="usr">
       </div>
+      <div class="form-group">
+        <label for="pwd">Password:</label>
+        <input type="password" class="form-control" id="pwd">
+      </div>
+    </form>
+      <button type="button" class="btn btn-info" id="logInBtn">Login</button>
+      <button type="button" class="btn btn-info" id="signUpBtn">Sign Up Now!</button>
+  </div>
 </body>
