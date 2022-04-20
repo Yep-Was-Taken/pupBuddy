@@ -9,7 +9,7 @@ import java.util.Map;
 public @Data class House {
     @DocumentId
     private String houseId;
-    private Map<Integer, Human> humans = new HashMap<>();
-    private Map<Integer, Dog> dogs = new HashMap<>();
-    private Map<Integer, Chore> chores = new HashMap<>();
+    private Map<String, Human> humans = new HashMap<>();
+    private Map<String, Dog> dogs = new HashMap<>();
+    private Map<String, Chore> chores = new HashMap<>();
 }

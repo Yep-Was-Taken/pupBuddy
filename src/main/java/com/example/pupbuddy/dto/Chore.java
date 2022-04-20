@@ -14,5 +14,5 @@ public @Data class Chore {
     private Date choreEnd;
     private String dogId;
     private String humanId;
-
+    private String houseId;
 }

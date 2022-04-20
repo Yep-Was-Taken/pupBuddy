@@ -10,14 +10,16 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
-  <div th:replace="fragments/navbar :: navbar"></div>
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-sm-4" id="left-side">
-        <p class="h4">My Pet</p><hr>
+
+<div th:replace="fragments/navbar :: navbar"></div>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-4" id="left-side">
+      <p class="h4">My Pet</p><hr>
           <form>
             <div class="form-group">
-              <label for="sel1">What pet would you like to see?</label>
+              <label for="selPet">What pet would you like to see?</label>
               <select class="form-control" id="selPet">
                 <option>Pet #1</option>
                 <option>Pet #2</option>
@@ -25,35 +27,35 @@
               </select>
             </div>
             <img class="img-responsive" src="nolan.PNG" alt="pet #1">
-          </form>
-      </div>
-      <div class="col-sm-4">
-        <p class="h4">Today's chores</p><hr>
-          <div class="list-group">
-              <a href="#" class="list-group-item list-group-item-action list-group-item-info">9:52 - Mom fed Pet #1</a>
-              <a href="#" class="list-group-item list-group-item-action list-group-item-info">12:01 - Dad Took Pet #1 Potty</a>
-              <a href="#" class="list-group-item list-group-item-action list-group-item-info" th:text="${chore}"></a>
-      </div>
-      </div>
-      <div class="col-sm-4">
-        <p class="h4">Have a chore to report?</p><hr>
-          <form action="#" th:action="@{saveChore}" th:object="${chore}" method="GET">
+          </form> 
+    </div>
+    <div class="col-sm-4">
+      <p class="h4">Today's chores</p><hr>
+        <div class="list-group">
+            <a href="#" class="list-group-item list-group-item-action list-group-item-info">9:52 - Mom fed Pet #1</a>
+            <a href="#" class="list-group-item list-group-item-action list-group-item-info">12:01 - Dad Took Pet #1 Potty</a>
+            <a href="#" class="list-group-item list-group-item-action list-group-item-info"></a>
+    </div>
+    </div>
+    <div class="col-sm-4">
+      <p class="h4">Have a chore to report?</p><hr>
+        <form action="#" th:action="@{saveChore}" method="Post">
+          <div class="form-group">
+            <label for="chore">What chore did you do?</label>
+            <select class="form-control" id="chore" name="chore">
+              <option>Fed Pet</option>
+              <option>Took Pet Potty</option>
+              <option>Took Pet on Walk</option>
+            </select>
+          </div>
             <div class="form-group">
-              <label for="chore">What chore did you do?</label>
-              <select class="form-control" name="chore" th:field="*{chore}">
-                <option>Fed Pet</option>
-                <option>Took Pet Potty</option>
-                <option>Took Pet on Walk</option>
-              </select>
+              <label for="time">When was the chore completed?</label>
+              <input type="time" class="form-control" id="time" name="time">
             </div>
-              <div class="form-group">
-                <label for="time">When was the chore completed?</label>
-                <input type="time" class="form-control" name="time" th:field="*{time}">
-              </div>
-              <button type="submit" name="submit" class="btn btn-info mx-auto" style="width:200px">Submit Chore</button>
-          </form>
-      </div>
+            <button type="submit" name="submit" class="btn btn-info mx-auto" style="width:200px">Submit Chore</button>
+        </form>
     </div>
   </div>
+</div>
 </body>
 </html>

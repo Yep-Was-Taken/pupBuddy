@@ -14,21 +14,20 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-sm-4" id="left-side">
-        <p class="h4">Welcome, </p><hr>
-        <p th:text="${human}"! />
+        <p class="h4">Welcome </p>
           <form>
             <img class="img-responsive" src="user.PNG" alt="pet #1">
           </form>
       </div>
       <div class="col-sm-4">
         <p class="h4">Edit your user settings</p><hr>
-        <form action="#" th:action="@{saveHuman}" th:object="${human}" method="GET">
+        <form action="#" th:action="@{saveHuman}" method="GET">
           <div class="form-group">
             <label for="userNameInput">User's Name:</label>
-            <input class="form-control" id="userNameInput" th:field="*{userNameInput}">
+            <input class="form-control" id="userNameInput">
             </select>
             <label for="userPicture">User's Picture:</label>
-            <input type="file" class="form-control" id="userPicture" th:field="*{userPicture}">
+            <input type="file" class="form-control" id="userPicture">
           </div>
           <button type="submit" class="btn btn-info mx-auto"style="width:200px">Save Settings</button>
         </form>

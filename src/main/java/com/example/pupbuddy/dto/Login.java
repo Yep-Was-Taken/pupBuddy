@@ -9,5 +9,6 @@ class Login {
     private String loginId;
     private String username;
     private String password;
-    private int humanId;
+    private String humanId;
+    private String houseId;
 }

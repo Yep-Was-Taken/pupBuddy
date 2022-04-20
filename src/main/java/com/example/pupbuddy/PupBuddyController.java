@@ -35,6 +35,31 @@ public class PupBuddyController {
         return "home";
     }
 
+    @RequestMapping("/home.html")
+    public String home(){
+        return "home";
+    }
+
+    @RequestMapping("/pets.html")
+    public String pets(){
+        return "pets";
+    }
+
+    @RequestMapping("/profile.html")
+    public String profile(){
+        return "profile";
+    }
+
+    @RequestMapping("/household.html")
+    public String household(){
+        return "household";
+    }
+
+    @RequestMapping("/login.html")
+    public String login(){
+        return "login";
+    }
+
     @PostMapping("/createLogin")
     public String createLogin(@RequestBody Login login) throws InterruptedException, ExecutionException {
         return crudService.createLogin(login);
