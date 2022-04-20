@@ -17,7 +17,7 @@ public class HumanCRUDService implements IHumanCRUDService{
 
     @Override
     public String createHuman(Human human) throws ExecutionException, InterruptedException {
-        ApiFuture<WriteResult> collectionsApiFuture = dbFirestore.collection("Humans").document(human.getHumanId()).set(human);
+        ApiFuture<WriteResult> collectionsApiFuture = dbFirestore.collection("Houses").document(human.getHouseId()).collection("Humans").document(human.getHumanId()).set(human);
         return collectionsApiFuture.get().getUpdateTime().toString();
     }
 
@@ -36,7 +36,7 @@ public class HumanCRUDService implements IHumanCRUDService{
 
     @Override
     public String updateHuman(Human human) throws ExecutionException, InterruptedException {
-        ApiFuture<WriteResult> collectionApiFuture = dbFirestore.collection("Humans").document(human.getHumanId()).set(human);
+        ApiFuture<WriteResult> collectionApiFuture = dbFirestore.collection("Houses").document(human.getHouseId()).collection("Humans").document(human.getHumanId()).set(human);
         return collectionApiFuture.get().getUpdateTime().toString();
     }
 

@@ -17,7 +17,7 @@ public class DogCRUDService implements IDogCRUDService{
 
     @Override
     public String createDog(Dog dog) throws ExecutionException, InterruptedException {
-        ApiFuture<WriteResult> collectionsApiFuture = dbFirestore.collection("Dogs").document(dog.getDogId()).set(dog);
+        ApiFuture<WriteResult> collectionsApiFuture = dbFirestore.collection("Houses").document(dog.getHouseId()).collection("Dogs").document(dog.getDogId()).set(dog);
         return collectionsApiFuture.get().getUpdateTime().toString();
     }
 
@@ -36,7 +36,7 @@ public class DogCRUDService implements IDogCRUDService{
 
     @Override
     public String updateDog(Dog dog) throws ExecutionException, InterruptedException {
-        ApiFuture<WriteResult> collectionApiFuture = dbFirestore.collection("Dogs").document(dog.getDogId()).set(dog);
+        ApiFuture<WriteResult> collectionApiFuture = dbFirestore.collection("Houses").document(dog.getHouseId()).collection("Dogs").document(dog.getDogId()).set(dog);
         return collectionApiFuture.get().getUpdateTime().toString();
     }
 
