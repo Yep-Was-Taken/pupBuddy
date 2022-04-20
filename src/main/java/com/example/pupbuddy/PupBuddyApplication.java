@@ -18,7 +18,7 @@ public class PupBuddyApplication {
     public static void main(String[] args) throws IOException {
         ClassLoader classLoader = PupBuddyApplication.class.getClassLoader();
 
-        FileInputStream serviceAccount = new FileInputStream("C:/Users/Molly/Documents/service-account-file.json");
+        FileInputStream serviceAccount = new FileInputStream("{firebase.credential.path}");
 
         FirebaseOptions options = new FirebaseOptions.Builder()
                 .setCredentials(GoogleCredentials.fromStream(serviceAccount))
