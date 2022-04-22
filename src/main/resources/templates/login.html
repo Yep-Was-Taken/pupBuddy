@@ -11,7 +11,19 @@
 </head>
 
 <body>
-  <div th:replace="fragments/navbar :: navbar"></div>
+  <nav class="navbar navbar-dark" style="background-color:#5bc0de">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="home.html">PupBuddy</a>
+        </div>
+    </div>
+</nav>
+
   <div class="container">
     <h2>Keep track of your doggy duties!</h2>
     <form>
