@@ -15,6 +15,7 @@ import java.util.concurrent.ExecutionException;
 @Controller
 public class PupBuddyController {
 
+    private String houseId = "6Vbyj28nCXww2GHzoxHa";
     @Autowired
     public IChoreCRUDService choreCrudService;
 
@@ -81,12 +82,12 @@ public class PupBuddyController {
     }
 
     @PostMapping("/createChore")
-    public String createChore(@RequestBody Chore chore) throws ExecutionException, InterruptedException {
-        return choreCrudService.createChore(chore);
+    public String createChore(@RequestBody Chore chore, String houseId) throws ExecutionException, InterruptedException {
+        return choreCrudService.createChore(chore, this.houseId);
     }
 
-    @GetMapping("/getChore")
-    public Chore getChore(@RequestParam String choreId, String houseId) throws InterruptedException, ExecutionException {
+    @RequestMapping("/getChore")
+    public Chore getChore(@RequestParam String choreId,@RequestParam String houseId) throws InterruptedException, ExecutionException {
         return choreCrudService.getChore(choreId, houseId);
     }
 
@@ -103,7 +104,7 @@ public class PupBuddyController {
 
     @PostMapping("/createDog")
     public String createDog(@RequestBody Dog dog) throws ExecutionException, InterruptedException {
-        return dogCrudService.createDog(dog);
+        return dogCrudService.createDog(dog, this.houseId);
     }
 
     @GetMapping("/getDog")

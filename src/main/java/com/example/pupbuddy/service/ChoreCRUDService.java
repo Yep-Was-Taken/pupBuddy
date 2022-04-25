@@ -16,9 +16,10 @@ public class ChoreCRUDService implements IChoreCRUDService{
     Firestore dbFirestore = FirestoreClient.getFirestore();
 
     @Override
-    public String createChore(Chore chore) throws ExecutionException, InterruptedException {
-        ApiFuture<WriteResult> collectionsApiFuture = dbFirestore.collection("Houses").document(chore.getHouseId()).collection("Chores").document(chore.getChoreId()).set(chore);
-        return collectionsApiFuture.get().getUpdateTime().toString();
+    public String createChore(Chore chore, String houseId) throws ExecutionException, InterruptedException {
+        chore.setHouseId(houseId);
+        ApiFuture<DocumentReference> collectionsApiFuture = dbFirestore.collection("Houses").document(houseId).collection("Chores").add(chore);
+        return "";
     }
 
     @Override

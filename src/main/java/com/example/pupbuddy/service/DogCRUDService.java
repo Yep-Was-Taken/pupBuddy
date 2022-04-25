@@ -16,9 +16,12 @@ public class DogCRUDService implements IDogCRUDService{
     Firestore dbFirestore = FirestoreClient.getFirestore();
 
     @Override
-    public String createDog(Dog dog) throws ExecutionException, InterruptedException {
-        ApiFuture<WriteResult> collectionsApiFuture = dbFirestore.collection("Houses").document(dog.getHouseId()).collection("Dogs").document(dog.getDogId()).set(dog);
-        return collectionsApiFuture.get().getUpdateTime().toString();
+    public String createDog(Dog dog, String houseId) throws ExecutionException, InterruptedException {
+        dog.setHouseId(houseId);
+        ApiFuture<DocumentReference> collectionsApiFuture = dbFirestore.collection("Houses").document(houseId).collection("Dogs").add(dog);
+        dog.setDogId(collectionsApiFuture.get().getId());
+
+        return "";
     }
 
     @Override
